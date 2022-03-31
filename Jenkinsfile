@@ -9,7 +9,7 @@ pipeline {
 
     stage('SonarQube Analysis') {
       steps {
-        withSonarQubeEnv() {
+        withSonarQubeEnv("petclinic") {
           sh "./mvnw clean verify sonar:sonar -Dsonar.projectKey=petclinic1"
         }
       }
