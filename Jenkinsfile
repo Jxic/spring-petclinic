@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('SonarQube Analysis') {
+      withSonarQubeEnv() {
+        sh "./mvnw clean verify sonar:sonar -Dsonar.projectKey=petclinic1"
+      }
+    }
   }
+  
 }
